@@ -3,19 +3,23 @@ class Ball{
         var options = {
             isStatic:false, 
             restitution:0.4, 
-            friction:0.5,
-            density:1.2
+            friction:3,
+            density:2.2
         }
-        var r = Math.round(random(50, 80))
+        var r = Math.round(50);
         this.body = Bodies.circle(x, y, r, options);
         this.radius = r;
-        this.image = loadImage("sprites/paper.png");
+        // this.image = loadImage("sprites/Untitled.png");
         World.add(world, this.body)
     }    
 display(){
     var pos = this.body.position;
-    imageMode(CENTER);    
-    image(this.image, pos.x, pos.y, this.radius, this.radius);
-}
+    ellipseMode(CENTER);
+    // imageMode(CENTER);    
+    fill("lightblue");
+    ellipse(pos.x, pos.y, this.radius, this.radius);
+    // image(this.image, pos.x, pos.y, this.radius, this.radius);
 
+}
+    
 }
