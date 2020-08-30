@@ -1,13 +1,13 @@
 class invis{
-    constructor(){
+    constructor(x, y, w, h){
         var options = {
             isStatic:true,
             friction:3,
             density:4.2
         }
-        this.body = Bodies.rectangle(700, 618, 14000, 5, options);
-        this.width = 14000;
-        this.height = 25;
+        this.body = Bodies.rectangle(x, y, w, h, options);
+        this.width = w;
+        this.height = h;
         World.add(world, this.body);
     }
 display(){
