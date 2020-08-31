@@ -3,8 +3,9 @@ class enemy{
         var options = {
             isStatic:true
         }
-        this.body = Bodies.circle(random(-1400, 1400), random(-800, 500), 40, options);
+        this.body = Bodies.circle(random(-1600, 2600), random(-1000, 500), 40, options);
         this.radius = 40;
+        // this.Visiblity = 255;
         World.add(world, this.body)
     }
 display(){
