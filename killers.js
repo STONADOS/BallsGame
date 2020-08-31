@@ -3,7 +3,7 @@ class killers{
         var options = {
             isStatic:true
         }
-        this.body = Bodies.circle(random(-1400, 1400), random(-1200, 500), 40, options);
+        this.body = Bodies.circle(random(-1600, 2600), random(-1200, 500), 40, options);
         this.radius = 40;
         World.add(world, this.body)
     }
