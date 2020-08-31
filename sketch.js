@@ -9,6 +9,7 @@ var kills = 0
 
 
 var replay;
+var songnum = 1;
 // var back;
 
 var paperBall, floor, bin, bin2, bin3, slingshot, ball, enemy1, mouse;
@@ -20,6 +21,7 @@ var state = "play"
 var gamestate =  "launched";
 function preload(){
     back = loadImage("sprites/2Untitled.png");
+    song = loadSound("sprites/preview.mp3")
 }
 
 function setup() {
@@ -27,11 +29,6 @@ function setup() {
 
     engine = Engine.create();
     world = engine.world;
-
-
-    replay = createSprite(camera.position.x, camera.position.y);
-    replay.addImage("Image", back);
-    replay.visible = false;
     // bin = new Boxs(1000, 590, 150, 150);
 
     // paperBall = new Ball(100, 100);
@@ -111,11 +108,15 @@ function setup() {
     slingshot = new SlingShot(mouse.body, ball.body);
 
 
-}
+} 
 
 function draw() {
     background("black");
-    // drawSprites();
+    drawSprites();
+    if (songnum == 1){
+    song.play();
+    songnum +=1
+    }
     Engine.update(engine);
     lava.display();
     floor.display();
@@ -336,6 +337,12 @@ function detectollision(lstone,lmango){
     num += 50;
     kills +=1; 
 
+    // push();
+    // lmango.Visiblity -=10;
+    // tint(255, lmango.Visiblity);
+    // pop();
+    // World.remove(world, lmango.body);
+
     }
 
   }
@@ -360,8 +367,13 @@ function collided(bullets, walls){
 
     //   Body.setPosition(lmango.body, lmango.body.position, {x:60, y:500});
       state = "over"
-      replay.visible = true
-    
+      // replay.visible =true
+      replay = createSprite(ball.body.position.x, ball.body.position.y);
+      replay.addImage("Image", back);
+      replay.visible = true;
+      replay.scale = 0.3;
+      replay.depth += 50;
+      song.stop();
       }
   
     }
